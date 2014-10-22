@@ -1,0 +1,45 @@
+Script started on Tue 21 Oct 2014 11:53:28 PM PDT
+]0;jesse@jaksun: ~/Desktop/rshell/testjesse@jaksun:~/Desktop/rshell/test$ cd ..
+]0;jesse@jaksun: ~/Desktop/rshelljesse@jaksun:~/Desktop/rshell$ cd src/
+]0;jesse@jaksun: ~/Desktop/rshell/srcjesse@jaksun:~/Desktop/rshell/src$ g++[K[K[Kls
+README.md  rshell.cpp
+]0;jesse@jaksun: ~/Desktop/rshell/srcjesse@jaksun:~/Desktop/rshell/src$ g++ -Wall -Werror -ansi -pedab[Kntic rshell.cpp
+]0;jesse@jaksun: ~/Desktop/rshell/srcjesse@jaksun:~/Desktop/rshell/src$ ls
+[0m[01;32ma.out[0m  README.md  rshell.cpp
+]0;jesse@jaksun: ~/Desktop/rshell/srcjesse@jaksun:~/Desktop/rshell/src$ ./a.out
+Rshell initialized
+
+The login is unretreivable therefore NULL: No such file or directory
+ls -a     ls -a -l # last program did not retrieve the fill es because im in another dir
+total 32
+drwxrwxr-x 2 jesse jesse  4096 Oct 21 23:53 .
+drwxrwxr-x 5 jesse jesse  4096 Oct 21 23:53 ..
+-rwxrwxr-x 1 jesse jesse 14545 Oct 21 23:53 a.out
+-rw-rw-r-- 1 jesse jesse   541 Oct 21 23:30 README.md
+-rw-rw-r-- 1 jesse jesse  3169 Oct 21 23:32 rshell.cpp
+The login is unretreivable therefore NULL: No such file or directory
+echo unlimited # las    last program work            cmd workd ed
+unlimited
+The login is unretreivable therefore NULL: No such file or directory
+ls -a  ;  ; echo yay #  this command wont work di ue to bu  known bugs
+ls: cannot access : No such file or directory
+ls: cannot access echo: No such file or directory
+ls: cannot access yayÿ: No such file or directory
+The login is unretreivable therefore NULL: No such file or directory
+pwd   pwd ||      d  
+/home/jesse/Desktop/rshell/src
+The login is unretreivable therefore NULL: No such file or directory
+pwd   ./a.out # the    i his message keeps appearing du  ^ due to        because the term              cause of perror
+Rshell initialized
+
+The login is unretreivable therefore NULL: No such file or directory
+^C
+]0;jesse@jaksun: ~/Desktop/rshell/srcjesse@jaksun:~/Desktop/rshell/src$ exit[K[K[K[K.a[K/a.out
+Rshell initialized
+
+The login is unretreivable therefore NULL: No such file or directory
+exit
+]0;jesse@jaksun: ~/Desktop/rshell/srcjesse@jaksun:~/Desktop/rshell/src$ exit
+exit
+
+Script done on Tue 21 Oct 2014 11:57:08 PM PDT
