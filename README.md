@@ -29,16 +29,25 @@ README.md
 ./src
 
 ./tests
+
 ```
 ```
 ./src:
 
 rshell.cpp
+
+cp.cpp
+
+ls.cpp
+
+Timer.h
 ```
 ```
 ./tests:
 
 exec.script
+
+ls.script
 ```
 
 
