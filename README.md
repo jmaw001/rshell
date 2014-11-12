@@ -54,7 +54,9 @@ Problems in ls
 --------
 ```
 *-R flag can be taken in, but the code itself does not work. So in testing, it will do nothing as of
-now
+now.
 
-*-l works, but breaks when it is combined with other things such as the -a flag or directories.
+*-l works, but breaks when it is combined with other things such as the -a flag or directories.(on the bright side, -a and file directories cooperate!)
+
+*-l also randomly breaks with an error related to stat because the directory pathing for some files is slightly off.
 ```

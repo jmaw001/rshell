@@ -1,0 +1,35 @@
+Script started on Tue 11 Nov 2014 07:52:50 PM PST
+]0;jesse@jaksun: ~/Desktop/rshell/testjesse@jaksun:~/Desktop/rshell/test$ cs ../src
+The program 'cs' is currently not installed. You can install it by typing:
+sudo apt-get install csound
+]0;jesse@jaksun: ~/Desktop/rshell/testjesse@jaksun:~/Desktop/rshell/test$ cs ../src[C[1P[C[1P ../srcc ../srcd ../src
+]0;jesse@jaksun: ~/Desktop/rshell/srcjesse@jaksun:~/Desktop/rshell/src$ ls
+[0m[01;32ma.out[0m  cp.cpp  ls.cpp  README.md  rshell.cpp  Timer.h
+]0;jesse@jaksun: ~/Desktop/rshell/srcjesse@jaksun:~/Desktop/rshell/src$ lscd ../srcs[C[C[C[C[C[C[C[5Pexitg++ -Wall -Werror -ansi -pedantic ls.cpp[K ls.cpp
+]0;jesse@jaksun: ~/Desktop/rshell/srcjesse@jaksun:~/Desktop/rshell/src$ ./a.out ls /home
+jesse  
+]0;jesse@jaksun: ~/Desktop/rshell/srcjesse@jaksun:~/Desktop/rshell/src$ ./a.out ls /home -a
+..  jesse  .  
+]0;jesse@jaksun: ~/Desktop/rshell/srcjesse@jaksun:~/Desktop/rshell/src$ ./a.out ls /home -a[K[K[K[K[K[K[K[K-l
+Total 8
+drwxrwxr-x  2  jesse  jesse  4096  Nov  11  19:53    ,,,
+Failed to get stat: No such file or directory
+drwxrwxr-x  2  jesse  jesse  4096  Nov  11  19:53    lse
+-rw-rw-r--  1  jesse  jesse  541  Oct  22  00:07    README.md
+-rw-rw-r--  1  jesse  jesse  2256  Nov  11  18:33    Timer.h
+-rw-rw-r--  1  jesse  jesse  1435  Nov  11  18:33    cp.cpp
+-rw-rw-r--  1  jesse  jesse  3129  Oct  22  00:07    rshell.cpp
+]0;jesse@jaksun: ~/Desktop/rshell/srcjesse@jaksun:~/Desktop/rshell/src$ ./a.out ls -l[K[K[K
+ls.cpp  a.out  README.md  Timer.h  cp.cpp  rshell.cpp  
+]0;jesse@jaksun: ~/Desktop/rshell/srcjesse@jaksun:~/Desktop/rshell/src$ ./a.out notthecommand
+Segmentation fault (core dumped)
+]0;jesse@jaksun: ~/Desktop/rshell/srcjesse@jaksun:~/Desktop/rshell/src$ ./a.out ls -R
+]0;jesse@jaksun: ~/Desktop/rshell/srcjesse@jaksun:~/Desktop/rshell/src$ ./a.out ls -a /home /home[K[K[K[K[K[K/jesse/Desktop /home/jesse
+/home/jesse:
+Videos  .gitconfig  .macromedia  .cache  .adobe  ..  .Xauthority  Desktop  Downloads  .compiz  ex3.asm  .local  .mozilla  examples.desktop  ex1.asm  .xsession-errors.old  Music  ex4.asm  .  .bash_history  Public  .ssh  .bashrc  Templates  .xsession-errors  ex2.asm  .profile  .gconf  Documents  .ICEauthority  .bash_logout  .dbus  .viminfo  Pictures  .config  
+/home/jesse/Desktop:
+..  a.out  rshell  README  .  cp.cpp  
+]0;jesse@jaksun: ~/Desktop/rshell/srcjesse@jaksun:~/Desktop/rshell/src$ exit
+exit
+
+Script done on Tue 11 Nov 2014 07:55:10 PM PST

@@ -27,7 +27,7 @@ vector <char*> sorting(vector <char*> source)
 	{
 		n=0;
 		least=source.at(0);
-		for(int i=0;i<source.size();i++)
+		for(unsigned i=0;i<source.size();i++)
 		{
 			if(strlen(least)>strlen(source.at(i)))
 			{
@@ -46,11 +46,11 @@ void printl(vector <char*> source)
 	if(stat(".", &thisfile)<0)
 		perror("failed to stat");
 	cout << "Total " << thisfile.st_blocks << endl;
-	for(int i=0;i<source.size();i++)
+	for(unsigned i=0;i<source.size();i++)
 	{
-		struct stat file;
-		char str[80]="./";
+		char str[10]="./";
 		strcat(str, source.at(i));
+		struct stat file;
 		if(stat(str, &file)<0)
 		{
 			perror("Failed to get stat");
@@ -68,11 +68,12 @@ void printl(vector <char*> source)
 		printf((file.st_mode & S_IWOTH) ? "w" : "-");
 		printf((file.st_mode & S_IXOTH) ? "x" : "-");
 		cout << "  " << file.st_nlink << "  " << pwd->pw_name << "  " << grop->gr_name << "  " << file.st_size;
-		/*char mb[100];
+		char mb[100];
 		time_t t= file.st_mtime;
-		struct tm timez;
-		localtime_r(&t, &timez);
-		strftime(mb, sizeof(mb), "%m  %d  %H:%M" ,  timez);*/
+		tm *timez;
+		timez=localtime(&t);
+		strftime(mb, sizeof(mb), "%b  %d  %H:%M" ,  timez);
+		cout <<"  " << mb << "  ";
 		cout << "  "  << source.at(i) << endl;
 	}
 }
@@ -85,7 +86,6 @@ int main(int argc, char* argv[])
 	bool flaga=false;
 	bool flagl=false;
 	bool flagR=false;
-	char directory[]=".";
 	int i=0;
 	while(argv[i]!=NULL)
 	{
@@ -104,7 +104,7 @@ int main(int argc, char* argv[])
 		}
 		i--;
 	}
-	for(int k=0;k<flags.size();k++)
+	for(unsigned k=0;k<flags.size();k++)
 	{
 		int j=0;
 		while(flags.at(k)[j]!='\0')
@@ -152,7 +152,7 @@ int main(int argc, char* argv[])
 		}
 		else
 		{
-			for(int k=0;k<dirfiles.size();k++)
+			for(unsigned k=0;k<dirfiles.size();k++)
 			{
 				cout << dirfiles.at(k) << "  ";
 			}
@@ -192,7 +192,7 @@ int main(int argc, char* argv[])
 		}
 		else
 		{
-			for(int k=0; k<dirfiles.size();k++)
+			for(unsigned k=0; k<dirfiles.size();k++)
 			{
 				cout << dirfiles.at(k) << "  ";
 			}
@@ -202,7 +202,7 @@ int main(int argc, char* argv[])
 	else if(files.size()>1)
 	{
 		sortedfiles=sorting(files);
-		for(int i=0;i<sortedfiles.size();i++)
+		for(unsigned i=0;i<sortedfiles.size();i++)
 		{
 			cout << sortedfiles.at(i) << ":" << endl;
 			DIR *dirp;
@@ -234,7 +234,7 @@ int main(int argc, char* argv[])
 				printl(dirfiles);
 			else
 			{
-				for(int k=0;k<dirfiles.size(); k++)
+				for(unsigned k=0;k<dirfiles.size(); k++)
 				{
 					cout << dirfiles.at(k) << "  ";
 				}
