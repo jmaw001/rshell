@@ -5,7 +5,7 @@ CC=g++
 
 Flags= -Wall -Werror -ansi -pedantic
 
-all: rshell
+all: rshell cp ls
 
 rshell:
 
@@ -16,3 +16,7 @@ ls:
 
 	mkdir -p bin
 	$(CC) $(Flags) src/ls.cpp -o bin/ls
+
+cp:
+	mkdir-p bin
+	$(cc) $(Flags) src/cp.cpp -o bin/cp
