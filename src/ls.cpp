@@ -55,7 +55,8 @@ void printl(vector <char*> source)
 		{
 			perror("Failed to get stat");
 		}
-		//struct passwd *getpwuid(file.st_uid);
+		struct passwd *pwd=getpwuid(file.st_uid);
+		struct group *grop=getgrgid(file.st_gid);
 		printf(S_ISDIR(file.st_mode)? "d" : "-" );
 		printf((file.st_mode & S_IRUSR) ? "r" : "-");
 		printf((file.st_mode & S_IWUSR) ? "w" : "-");
@@ -66,7 +67,7 @@ void printl(vector <char*> source)
 		printf((file.st_mode & S_IROTH) ? "r" : "-");
 		printf((file.st_mode & S_IWOTH) ? "w" : "-");
 		printf((file.st_mode & S_IXOTH) ? "x" : "-");
-		cout << "  " << file.st_nlink << "  " << file.st_uid << "  " << file.st_gid << "  " << file.st_size;
+		cout << "  " << file.st_nlink << "  " << pwd->pw_name << "  " << grop->gr_name << "  " << file.st_size;
 		/*char mb[100];
 		time_t t= file.st_mtime;
 		struct tm timez;
@@ -117,7 +118,6 @@ int main(int argc, char* argv[])
 			j++;
 		}
 	}
-	cout << flaga << flagl << flagR << endl;
 	if(files.size()==0)
 	{
 		DIR *dirp;

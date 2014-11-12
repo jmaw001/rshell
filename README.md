@@ -9,8 +9,6 @@ Project can be downloaded from https://github.com/jmaw001/rshell.git
 
 Author and Contributors List
 ---------------
-Mike Izbicki
-
 Jesse Maw
 
 All other known bugs and fixes can be sent to jmaw001@ucr.edu
@@ -41,9 +39,22 @@ rshell.cpp
 ./tests:
 
 exec.script
+```
 
-Problems:
+
+Problems in Rshell
+-------
+```
 
 *Logic connectors do not work as of yet. Single commands on different lines will.
 
+```
 
+Problems in ls
+--------
+```
+*-R flag can be taken in, but the code itself does not work. So in testing, it will do nothing as of
+now
+
+*-l works, but breaks when it is combined with other things such as the -a flag or directories.
+```
