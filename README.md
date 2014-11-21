@@ -54,9 +54,12 @@ ls.script
 Problems in Rshell
 -------
 ```
-
+HW0:
 *Logic connectors do not work as of yet. Single commands on different lines will.
 
+HW2:
+*output redirections are not working.
+*when using a pipe: after the pipe command has passed, the next command will not output anything.
 ```
 
 Problems in ls

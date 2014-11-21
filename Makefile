@@ -18,5 +18,5 @@ ls:
 	$(CC) $(Flags) src/ls.cpp -o bin/ls
 
 cp:
-	mkdir-p bin
-	$(cc) $(Flags) src/cp.cpp -o bin/cp
+	mkdir -p bin
+	$(CC) $(Flags) src/cp.cpp -o bin/cp
