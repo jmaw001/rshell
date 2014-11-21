@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 		while(inFile.get(c))
 		{
 			outFile.put(c);
-			char c='0';
+			c='0';
 		}
 		inFile.close();
 	}
@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 		while(read(r,&c, n)!=0)
 		{
 			write(w,&c, n);
-			char c='0';
+			c='0';
 		}
 		if(close(r)<0)
 			perror("Error closing read file");
