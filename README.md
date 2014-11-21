@@ -58,8 +58,9 @@ HW0:
 *Logic connectors do not work as of yet. Single commands on different lines will.
 
 HW2:
-*output redirections are not working.
+*input and output redirections are not working.
 *when using a pipe: after the pipe command has passed, the next command will not output anything.
+*using proper white spaces between the start of the piping command is recommended as parsing for first few arguments is not perfect.
 ```
 
 Problems in ls

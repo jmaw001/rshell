@@ -100,7 +100,6 @@ int  main()
                		lettercount++;				//gets word length to get
              		original++;
 		}
-		//cout << pch << endl;
 		cmdlist[i]=pch;						//rid of the straggling connectors
             	i++;
 		lettercount=0;

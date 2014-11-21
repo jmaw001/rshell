@@ -1,0 +1,56 @@
+Script started on Thu 20 Nov 2014 07:48:06 PM PST
+]0;jesse@jaksun: ~/Desktop/rshell/testjesse@jaksun:~/Desktop/rshell/test$ cd ../src
+]0;jesse@jaksun: ~/Desktop/rshell/srcjesse@jaksun:~/Desktop/rshell/src$ g++ -cd ../src[5Pexitclear[1Pexit./a.outg++ -Wall -Werror -ansi -pedantic rshell.cpp
+]0;jesse@jaksun: ~/Desktop/rshell/srcjesse@jaksun:~/Desktop/rshell/src$ ./a.out
+Welcome to Jmaw001's rshell program! Please type in any bash commands!
+The login is unretreivable therefore NULL: No such file or directory
+c ls -a | cat
+.
+..
+a.out
+cp.cpp
+file.txt
+ls.cpp
+rshell2.cpp
+rshell.cpp
+Timer.h
+The login is unretreivable therefore NULL: No such file or directory
+ls # t  this command wont do anything                               the first command after every pipe comand w     mand will malfunction due to a bug
+The login is unretreivable therefore NULL: No such file or directory
+ls -a | grep a.out | tr a-z A-Z
+A.OUT
+The login is unretreivable therefore NULL: No such file or directory
+ls # wont work
+The login is unretreivable therefore NULL: No such file or directory
+cat file.txt
+TOTAL 64
+-RWXRWXR-X 1 JESSE JESSE 30001 NOV 20 19:22 A.OUT
+-RW-RW-R-- 1 JESSE JESSE  1435 NOV 11 18:33 CP.CPP
+-RW-RW-R-- 1 JESSE JESSE  5437 NOV 11 20:06 LS.CPP
+-RW-RW-R-- 1 JESSE JESSE  4227 NOV 20 19:23 RSHELL2.CPP
+-RW-RW-R-- 1 JESSE JESSE  4227 NOV 20 19:36 RSHELL.CPP
+-RW-RW-R-- 1 JESSE JESSE  2256 NOV 11 18:33 TIMER.H
+The login is unretreivable therefore NULL: No such file or directory
+echo helloworld! | tee file.txt
+helloworld!
+The login is unretreivable therefore NULL: No such file or directory
+ls
+The login is unretreivable therefore NULL: No such file or directory
+cat file.e txt
+helloworld!
+The login is unretreivable therefore NULL: No such file or directory
+echo shell | cat   g cat
+shell
+The login is unretreivable therefore NULL: No such file or directory
+ls
+The login is unretreivable therefore NULL: No such file or directory
+echo shell | echo shell # this should only print one shell
+shell
+The login is unretreivable therefore NULL: No such file or directory
+ls
+The login is unretreivable therefore NULL: No such file or directory
+exit
+]0;jesse@jaksun: ~/Desktop/rshell/srcjesse@jaksun:~/Desktop/rshell/src$ exit
+exit
+
+Script done on Thu 20 Nov 2014 07:52:43 PM PST
