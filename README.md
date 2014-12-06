@@ -50,6 +50,8 @@ exec.script
 ls.script
 
 redirect.script
+
+signals.script
 ```
 
 
@@ -63,6 +65,9 @@ HW2:
 *input and output redirections are not working.
 *when using a pipe: after the pipe command has passed, the next command will not output anything.
 *using proper white spaces between the start of the piping command is recommended as parsing for first few arguments is not perfect.
+
+HW3:
+*getenv() for PATH is not used because it creates a bug where no commands work after it executes. Still stuck with execvp
 ```
 
 Problems in ls
