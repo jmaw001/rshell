@@ -13,19 +13,22 @@ using namespace std;
 
 static void handler(int signum)
 {
-        signal(signum, SIG_IGN);
+        if(signal(signum, SIG_IGN)==SIG_ERR)
+		perror("signals");
 }
-void execute(char* source[])
+void execute(char* source[], char* used[])
 {
-	/*int j=0;
-	char** holy=used;
-	while(holy[j]!=NULL)
+	int j=0;
+	char* holy[256]={0};
+	while(used[j]!=NULL)
 	{
+		holy[j]= new char[256];
+		memset(holy[j],0,256);
+		strcpy(holy[j],used[j]);
 		strcat(holy[j],"/");
 		strcat(holy[j],source[0]);
-		cout << holy[j] << endl;
 		j++;
-	}*/
+	}	
         int pid1;
         pid1=fork();
         if(pid1<0)
@@ -35,24 +38,45 @@ void execute(char* source[])
         }
         if(pid1==0)
         {
-                signal(SIGINT, SIG_DFL);
-                /*for(int l=0;l<j;l++)
+                if(signal(SIGINT, SIG_DFL)==SIG_ERR)
+			perror("signals");
+                int l=0;
+		int errur=0;
+		while(l<=j)
 		{
-			execv(holy[l], source);
-		}*/
-		if(execvp(source[0],source)==-1)
-			perror("execvp");
+			if((errur=execv(holy[l], source))!=-1)
+				break;
+			l++;
+		}
+		if(errur==-1)
+		{
+			l++;
+			if(execv(holy[l], source)==-1)
+				perror("execv");
+		}
                 exit(1);
         }
         if(pid1>0)
         {
-                signal(SIGINT, handler);
+                if(signal(SIGINT, handler)==SIG_ERR)
+			perror("signals");
                 if(wait(NULL)==-1)
                         perror("wait");
         }
 }
-void execute2(char* source[])
+void execute2(char* source[], char* used[])
 {
+	int j=0;
+	char* holy[256]={0};
+	while(used[j]!=NULL)
+	{
+		holy[j]= new char[256];
+		memset(holy[j],0,256);
+		strcpy(holy[j],used[j]);
+		strcat(holy[j],"/");
+		strcat(holy[j],source[0]);
+		j++;
+	}
         int fd[2];
         if(pipe(fd)==-1)
                 perror("pipes");
@@ -66,8 +90,20 @@ void execute2(char* source[])
                         perror("dup2 problem");
                 //if(-1==close(fd[0]))
                         //perror("cant close stdin");
-		if(execvp(source[0], source)==-1)
-                        perror("execvp");
+                int l=0;
+		int errur=0;
+		while(l<=j)
+		{
+			if((errur=execv(holy[l], source))!=-1)
+				break;
+			l++;
+		}
+		if(errur==-1)
+		{
+			l++;
+			if(execv(holy[l], source)==-1)
+				perror("execv");
+		}
                 exit(1);
         }
         if(pid1>0)
@@ -80,13 +116,16 @@ void execute2(char* source[])
                         perror("wait");
         }
 }
-/*void makearray(char** easy)
+void makearray(char** easy)
 {
+	char dot[256]={0};
+	strcpy(dot, ".");
 	char* pPath= getenv("PATH");
+	easy[0]=dot;
 	char* token;
 	token=strtok(pPath, ":");
-	easy[0]=token;
-	int j=1;
+	easy[1]=token;
+	int j=2;
 	token=strtok(NULL, ":");
 	while(token!=NULL)
 	{
@@ -95,7 +134,7 @@ void execute2(char* source[])
 		token=strtok(NULL, ":");
 	}
 	easy[j]=NULL;
-}*/
+}
 int  main()
 {
         cout << "Welcome to Jmaw001's rshell program! Please type in any bash commands!" << endl;
@@ -107,14 +146,15 @@ int  main()
         char *scapegoat;                        //cstring for comment parsing
         int i=0;                                //initializing variables 
         int lettercount=0;
-        char * cmdlist[500];                    //declare argv for execvp               
+        char * cmdlist[500];                    //declare argv for execv              
         char name[8];
         bool has=false;
         int pid;
         char pw[BUFSIZ];
-        signal(SIGINT, handler);
-	//char* hou[256];
-	//makearray(hou);
+        if(signal(SIGINT, handler)==SIG_ERR)
+		perror("signals");
+	char* hou[256]={0};
+	makearray(hou);
         while(1)                                //infinite while loop for command shell till
         {                                       //user inputs exit
                 for(int k=0;k<500;k++)
@@ -134,7 +174,7 @@ int  main()
                 if(strcmp(pch,exite.c_str())==0)                //my exit function
                 {
                         cout << "Good Bye!" << endl;
-                        exit(1);
+                        break;
                 }
                 while(pch[lettercount]!='\0'&&pch[lettercount]!=';'&&pch[lettercount]!='&')
                 {
@@ -153,11 +193,12 @@ int  main()
                                 {
                                         char noob[]="./";
                                         strcat(noob, cmdlist[1]);
-                                        chdir(noob);
+                                        if(chdir(noob)==-1)
+						perror("change dir");
                                 }
                                 else
                                 {	
-                                        execute(cmdlist);
+                                        execute(cmdlist, hou);
                                 }
                                 i=0;
                         }
@@ -202,8 +243,31 @@ int  main()
                                         perror("dup2");
                                 if(-1==close(fd[0]))
                                         perror("close");
-                                if(-1==execvp(cmdlist[0], cmdlist))
-                                        perror("execvp");
+				int j=0;
+				char* hol[256]={0};
+				while(hou[j]!=NULL)
+				{
+					hol[j]= new char[256];
+					memset(hol[j],0,256);
+					strcpy(hol[j],hou[j]);
+					strcat(hol[j],"/");
+					strcat(hol[j],cmdlist[0]);
+					j++;
+				}
+				int l=0;
+				int errar=0;
+				while(l<=j)
+				{
+					if((errar=execv(hol[l], cmdlist))!=-1)
+						break;
+					l++;
+				}
+				if(errar==-1)
+				{
+					l++;
+					if(execv(hol[l], cmdlist)==-1)
+						perror("execv");
+				}
                                 exit(1);
                         }
                         else
@@ -233,11 +297,11 @@ int  main()
                                         lines.erase(lines.begin());
                                         if(lines.size()==0)
                                         {
-                                                execute(cmdlist);
+                                                execute(cmdlist, hou);
                                         }
                                         else
                                         {
-                                                execute2(cmdlist);
+                                                execute2(cmdlist, hou);
                                         }
                                 }
                                 if(dup2(stdinput,0)==-1)
